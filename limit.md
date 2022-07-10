@@ -1,6 +1,6 @@
 ```mysql
 select * from employees
-    order by hire_date desc
+    order by hire_date desc  （默认是升序）
     limit 1;  从头开始数一行
 select * from employees
     order by hire_date desc
