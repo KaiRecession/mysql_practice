@@ -24,3 +24,26 @@ order by t1.salary desc, t1.emp_no
 where 居然连接两张表的时候也是笛卡尔积
 ```
 
+## 窗口函数
+
+基本语法
+
+```sql
+<窗口函数> OVER ([PARTITION BY <列清单>] ORDER BY<排序清单>)
+```
+
+能够作为窗口函数的函数
+
+1、SUM、AVG、COUNT、MAX、MIN（聚合函数）
+
+2、RANK、DENS_RANK、ROW_NUMBER等专用窗口函数
+
+窗口函数配合起来就可以先分组，然后组内排序。PARTITION BY就是分组，分完组就是一个个窗口
+
+当使用聚合函数的时候就可以实现累计求和或者累计求平均等等
+
+```mysql
+select emp_no, salary, sum(salary) over (order by emp_no) from salaries
+    where to_date = '9999-01-01';
+```
+
