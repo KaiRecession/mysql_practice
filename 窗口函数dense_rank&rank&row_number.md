@@ -47,3 +47,4 @@ select emp_no, salary, sum(salary) over (order by emp_no) from salaries
     where to_date = '9999-01-01';
 ```
 
+**窗口函数使用了partition和over后，原本表的顺序就已经按照分区排好序了**
