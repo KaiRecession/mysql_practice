@@ -48,3 +48,7 @@ select emp_no, salary, sum(salary) over (order by emp_no) from salaries
 ```
 
 **窗口函数使用了partition和over后，原本表的顺序就已经按照分区排好序了**
+
+**如果不使用order by就是不累计的结果，这就牛逼了**
+
+窗口函数那一列的计算是在where后面的，所以如果where里面要用到窗口函数的计算结果就必须再起一张表
