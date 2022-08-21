@@ -13,3 +13,6 @@ select avg(salary)
  where里面不能写聚合函数，因为where是在查询前过滤的，聚合函数是对查询结果做聚合的，这不就矛盾了。只有having是对查询后过滤
 ```
 
+max(case when t.ranking = 1 then t.date else 0 end)
+
+**聚合函数还能这么用**
